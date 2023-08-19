@@ -1,12 +1,6 @@
-const http = require("http");
-const port = 5000;
 const fs = require("fs")
+const routeHandeler = (req, res) => {
 
-const route = require("./formRoute")
-const server = http.createServer(
-    route
-    /*
-    (req, res) => {
     console.log(req.url);
     if (req.url === "/") {
         res.writeHead(200, { "Content-Type": "text/html" });
@@ -18,13 +12,13 @@ const server = http.createServer(
             console.log("File content:", data);
             res.write(data)
             res.write("<form action=/message method=POST> <input type=text placeholder=enter name=message/> <button type=submit>submit</button></form>");
-        return res.end();
+            return res.end();
         });
-       // res.write("<form action=/message method=POST> <input type=text placeholder=enter name=message/> <button type=submit>submit</button></form>");
-       // return res.end();
-       //these both commented line should be wrapped in call back like we have done otherwise these twoline will run first and then readfiles
-       //callback will run and already res.end has been exicuted so now you cannot res.write any thing
-       // always rememember  all callback will get exicuted after all code
+        // res.write("<form action=/message method=POST> <input type=text placeholder=enter name=message/> <button type=submit>submit</button></form>");
+        // return res.end();
+        //these both commented line should be wrapped in call back like we have done otherwise these twoline will run first and then readfiles
+        //callback will run and already res.end has been exicuted so now you cannot res.write any thing
+        // always rememember  all callback will get exicuted after all code
     }
 
     if (req.url === "/message" && req.method === "POST") {
@@ -48,9 +42,5 @@ const server = http.createServer(
         })
     }
 }
-*/
-);
 
-server.listen(port, () => {
-    console.log("Listening at port " + port);
-});
+module.exports = routeHandeler
